@@ -13,17 +13,16 @@ import { HeroService } from './hero.service';
 export class HeroDetailComponent implements OnInit {
   @Input() hero:Hero;
 
-  constructor(
-    private heroService: HeroService,
-    private route: ActivatedRoute,
-    private location: Location
-  ) {}
-
-  ngOnInit(): void {
-    this.route.paramMap.switchMap((params: ParamMap) => this.heroService.getHero(+params.get('id'))).subscribe(hero => this.hero = hero);
+  constructor(private heroService:HeroService,
+              private route:ActivatedRoute,
+              private location:Location) {
   }
 
-  goBack(): void {
+  ngOnInit():void {
+    this.route.paramMap.switchMap((params:ParamMap) => this.heroService.getHero(+params.get('id'))).subscribe(hero => this.hero = hero);
+  }
+
+  goBack():void {
     this.location.back();
   }
 }

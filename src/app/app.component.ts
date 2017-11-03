@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-@Component ({
+@Component({
   selector: 'app-root',
   template: `
     <h1>{{title}}</h1>
